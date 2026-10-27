@@ -8,7 +8,7 @@ import { Modal } from '../components/ui/Modal';
 import { ConfirmDialog } from '../components/ui/ConfirmDialog';
 import { SearchInput } from '../components/ui/SearchInput';
 import { EmptyState } from '../components/ui/EmptyState';
-import { Laptop, PlusCircle, Monitor, Printer, HardDrive } from 'lucide-react';
+import { Laptop, PlusCircle } from 'lucide-react';
 
 export const InventoryPage: React.FC = () => {
   const { state, deleteEquipment } = useApp();
@@ -60,7 +60,7 @@ export const InventoryPage: React.FC = () => {
             Inventário de Ativos de TI
           </h2>
           <p className="text-xs text-slate-500 mt-0.5">
-            Controle de computadores, impressoras, switches e servidores da Health Quality
+            Controle de computadores, impressoras, switches e servidores corporativos
           </p>
         </div>
 
@@ -69,7 +69,7 @@ export const InventoryPage: React.FC = () => {
             setEditingEquipment(null);
             setFormModalOpen(true);
           }}
-          className="inline-flex items-center gap-2 px-4 py-2 text-xs sm:text-sm font-semibold text-white bg-[#1565C0] hover:bg-[#0D326B] rounded-lg transition-colors shadow-xs shrink-0"
+          className="inline-flex items-center gap-2 px-4 py-2 text-xs sm:text-sm font-semibold text-white bg-[#2563EB] hover:bg-blue-700 rounded-lg transition-colors shadow-xs shrink-0"
         >
           <PlusCircle className="w-4 h-4" />
           Cadastrar Equipamento
@@ -82,7 +82,7 @@ export const InventoryPage: React.FC = () => {
           <SearchInput
             value={search}
             onChange={setSearch}
-            placeholder="Pesquisar por patrimônio, hostname, IP, modelo ou setor..."
+            placeholder="Pesquisar por patrimônio (ex: OTHX-PC-0001), hostname, IP ou setor..."
           />
         </div>
 

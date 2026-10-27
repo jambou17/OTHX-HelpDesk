@@ -1,7 +1,7 @@
 import React from 'react';
-import { useLocation, useNavigate, Link } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import { useApp } from '../../context/AppContext';
-import { Menu, Plus, HardDrive, Shield } from 'lucide-react';
+import { Menu, Plus, HardDrive, Sparkles } from 'lucide-react';
 
 interface HeaderProps {
   onOpenMobileNav: () => void;
@@ -9,7 +9,6 @@ interface HeaderProps {
 
 export const Header: React.FC<HeaderProps> = ({ onOpenMobileNav }) => {
   const location = useLocation();
-  const navigate = useNavigate();
   const { state } = useApp();
 
   const getPageInfo = () => {
@@ -36,9 +35,9 @@ export const Header: React.FC<HeaderProps> = ({ onOpenMobileNav }) => {
       return { title: 'Inventário de TI', breadcrumb: 'Estações, Impressoras & Ativos' };
     }
     if (path === '/configuracoes') {
-      return { title: 'Configurações', breadcrumb: 'Gestão de Dados do Protótipo' };
+      return { title: 'Configurações', breadcrumb: 'Gestão da Plataforma & Armazenamento' };
     }
-    return { title: 'HQ TechAssist', breadcrumb: 'ITSM' };
+    return { title: 'OTHX Help Desk', breadcrumb: 'ITSM' };
   };
 
   const { title, breadcrumb } = getPageInfo();
@@ -57,7 +56,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenMobileNav }) => {
 
         <div className="min-w-0">
           <div className="flex items-center gap-1.5 text-xs text-slate-500">
-            <span>Health Quality TI</span>
+            <span className="font-semibold text-slate-700">OTHX Solutions</span>
             <span>/</span>
             <span className="truncate">{breadcrumb}</span>
           </div>
@@ -71,17 +70,17 @@ export const Header: React.FC<HeaderProps> = ({ onOpenMobileNav }) => {
       <div className="flex items-center gap-3 shrink-0">
         <Link
           to="/chamados/novo"
-          className="inline-flex items-center gap-2 px-3.5 py-1.5 text-xs sm:text-sm font-medium text-white bg-[#1565C0] hover:bg-[#0D326B] rounded-lg transition-colors shadow-xs"
+          className="inline-flex items-center gap-2 px-3.5 py-1.5 text-xs sm:text-sm font-medium text-white bg-[#2563EB] hover:bg-blue-700 rounded-lg transition-colors shadow-xs"
         >
           <Plus className="w-4 h-4" />
           <span className="hidden sm:inline">Nova Solicitação</span>
           <span className="sm:hidden">Novo</span>
         </Link>
 
-        {/* Local Storage Indicator */}
-        <div className="hidden md:flex items-center gap-1.5 px-2.5 py-1 bg-slate-100 text-slate-600 rounded-md text-xs font-mono">
-          <HardDrive className="w-3.5 h-3.5 text-slate-500" />
-          <span>Local v0.1.0</span>
+        {/* Local Storage Indicator with v0.2.0 */}
+        <div className="hidden md:flex items-center gap-1.5 px-2.5 py-1 bg-slate-100 text-slate-700 rounded-md text-xs font-mono border border-slate-200">
+          <HardDrive className="w-3.5 h-3.5 text-cyan-600" />
+          <span>v0.2.0</span>
         </div>
 
         {/* Current user role badge */}
@@ -90,11 +89,11 @@ export const Header: React.FC<HeaderProps> = ({ onOpenMobileNav }) => {
             <span className="text-xs font-semibold text-slate-800 block leading-tight">
               {state.currentUser.nome.split(' ')[0]}
             </span>
-            <span className="text-[10px] uppercase font-bold tracking-wider text-[#1565C0] block">
+            <span className="text-[10px] uppercase font-bold tracking-wider text-[#2563EB] block">
               {state.currentUser.perfil}
             </span>
           </div>
-          <div className="w-8 h-8 rounded-full bg-[#1565C0] text-white flex items-center justify-center text-xs font-bold ring-2 ring-blue-100">
+          <div className="w-8 h-8 rounded-full bg-[#2563EB] text-white flex items-center justify-center text-xs font-bold ring-2 ring-blue-100">
             {state.currentUser.avatarInitials}
           </div>
         </div>

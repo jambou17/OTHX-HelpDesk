@@ -105,7 +105,7 @@ export const TicketTimeline: React.FC<TicketTimelineProps> = ({ ticketId, events
             <button
               type="submit"
               disabled={!comentario.trim()}
-              className="inline-flex items-center gap-1.5 px-4 py-1.5 text-xs font-semibold text-white bg-[#1565C0] hover:bg-[#0D326B] disabled:opacity-50 disabled:cursor-not-allowed rounded-lg transition-colors shadow-xs"
+              className="inline-flex items-center gap-1.5 px-4 py-1.5 text-xs font-semibold text-white bg-[#2563EB] hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed rounded-lg transition-colors shadow-xs"
             >
               <Send className="w-3.5 h-3.5" />
               Publicar

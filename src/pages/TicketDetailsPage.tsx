@@ -43,7 +43,7 @@ export const TicketDetailsPage: React.FC = () => {
         </p>
         <button
           onClick={() => navigate('/chamados')}
-          className="px-4 py-2 text-xs font-semibold text-white bg-[#1565C0] rounded-lg hover:bg-[#0D326B] transition-colors"
+          className="px-4 py-2 text-xs font-semibold text-white bg-[#2563EB] rounded-lg hover:bg-blue-700 transition-colors"
         >
           Voltar para Lista de Chamados
         </button>
@@ -117,7 +117,7 @@ export const TicketDetailsPage: React.FC = () => {
           </button>
           <div>
             <div className="flex items-center gap-2">
-              <span className="font-mono text-base sm:text-lg font-bold text-[#1565C0]">
+              <span className="font-mono text-base sm:text-lg font-bold text-[#2563EB]">
                 {ticket.numeroOS}
               </span>
               <StatusBadge status={ticket.status} />
@@ -148,7 +148,7 @@ export const TicketDetailsPage: React.FC = () => {
           onClick={() => setActiveTab('geral')}
           className={`py-3.5 px-4 text-xs font-semibold border-b-2 transition-colors whitespace-nowrap ${
             activeTab === 'geral'
-              ? 'border-[#1565C0] text-[#1565C0]'
+              ? 'border-[#2563EB] text-[#2563EB]'
               : 'border-transparent text-slate-500 hover:text-slate-800'
           }`}
         >
@@ -158,7 +158,7 @@ export const TicketDetailsPage: React.FC = () => {
           onClick={() => setActiveTab('atendimento')}
           className={`py-3.5 px-4 text-xs font-semibold border-b-2 transition-colors whitespace-nowrap ${
             activeTab === 'atendimento'
-              ? 'border-[#1565C0] text-[#1565C0]'
+              ? 'border-[#2563EB] text-[#2563EB]'
               : 'border-transparent text-slate-500 hover:text-slate-800'
           }`}
         >
@@ -168,7 +168,7 @@ export const TicketDetailsPage: React.FC = () => {
           onClick={() => setActiveTab('historico')}
           className={`py-3.5 px-4 text-xs font-semibold border-b-2 transition-colors whitespace-nowrap flex items-center gap-1.5 ${
             activeTab === 'historico'
-              ? 'border-[#1565C0] text-[#1565C0]'
+              ? 'border-[#2563EB] text-[#2563EB]'
               : 'border-transparent text-slate-500 hover:text-slate-800'
           }`}
         >
@@ -181,13 +181,13 @@ export const TicketDetailsPage: React.FC = () => {
           onClick={() => setActiveTab('diagnostico')}
           className={`py-3.5 px-4 text-xs font-semibold border-b-2 transition-colors whitespace-nowrap flex items-center gap-1.5 ${
             activeTab === 'diagnostico'
-              ? 'border-[#1565C0] text-[#1565C0]'
+              ? 'border-[#2563EB] text-[#2563EB]'
               : 'border-transparent text-slate-500 hover:text-slate-800'
           }`}
         >
           <span>Diagnósticos & Soluções</span>
           {linkedExecutions.length > 0 && (
-            <span className="w-4 h-4 rounded-full bg-blue-100 text-[#1565C0] text-[10px] font-bold flex items-center justify-center">
+            <span className="w-4 h-4 rounded-full bg-blue-100 text-[#2563EB] text-[10px] font-bold flex items-center justify-center">
               {linkedExecutions.length}
             </span>
           )}
@@ -283,12 +283,12 @@ export const TicketDetailsPage: React.FC = () => {
               <div className="p-4 rounded-xl border border-slate-200 bg-white">
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-xs font-bold uppercase tracking-wider text-slate-700 flex items-center gap-2">
-                    <Laptop className="w-4 h-4 text-[#1565C0]" />
+                    <Laptop className="w-4 h-4 text-[#2563EB]" />
                     Equipamento Físico Associado
                   </span>
                   <Link
                     to="/inventario"
-                    className="text-xs font-semibold text-[#1565C0] hover:underline"
+                    className="text-xs font-semibold text-[#2563EB] hover:underline"
                   >
                     Ver no Inventário
                   </Link>
@@ -433,7 +433,7 @@ export const TicketDetailsPage: React.FC = () => {
                 </h4>
                 <Link
                   to={`/diagnosticos?ticketId=${ticket.id}`}
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-white bg-[#1565C0] hover:bg-[#0D326B] rounded-lg transition-colors shadow-xs"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-white bg-[#2563EB] hover:bg-blue-700 rounded-lg transition-colors shadow-xs"
                 >
                   <Wrench className="w-3.5 h-3.5" />
                   Iniciar Novo Diagnóstico para esta OS
@@ -479,7 +479,7 @@ export const TicketDetailsPage: React.FC = () => {
             {/* Related Knowledge Articles */}
             <div className="pt-6 border-t border-slate-200">
               <h4 className="text-xs font-bold uppercase tracking-wider text-slate-700 mb-3 flex items-center gap-2">
-                <BookOpen className="w-4 h-4 text-[#1565C0]" />
+                <BookOpen className="w-4 h-4 text-[#2563EB]" />
                 Artigos Homologados Relacionados na Categoria "{ticket.categoria}"
               </h4>
 
@@ -491,13 +491,13 @@ export const TicketDetailsPage: React.FC = () => {
                       to="/conhecimento"
                       className="p-3.5 bg-white border border-slate-200 rounded-xl hover:border-blue-300 hover:shadow-xs transition-all block text-xs group"
                     >
-                      <h5 className="font-bold text-slate-900 group-hover:text-[#1565C0] transition-colors leading-snug">
+                      <h5 className="font-bold text-slate-900 group-hover:text-[#2563EB] transition-colors leading-snug">
                         {art.titulo}
                       </h5>
                       <p className="text-slate-500 text-[11px] line-clamp-2 mt-1">
                         {art.conteudo}
                       </p>
-                      <span className="text-[11px] text-[#1565C0] font-semibold mt-2 inline-flex items-center gap-1">
+                      <span className="text-[11px] text-[#2563EB] font-semibold mt-2 inline-flex items-center gap-1">
                         Abrir artigo <ExternalLink className="w-3 h-3" />
                       </span>
                     </Link>

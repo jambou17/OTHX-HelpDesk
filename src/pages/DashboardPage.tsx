@@ -15,6 +15,7 @@ import {
   Flame,
   Timer,
   PlusCircle,
+  Cpu,
 } from 'lucide-react';
 
 export const DashboardPage: React.FC = () => {
@@ -32,24 +33,27 @@ export const DashboardPage: React.FC = () => {
 
   return (
     <div className="space-y-6">
-      {/* Top Banner & Quick Actions */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-linear-to-r from-[#0D326B] to-[#1565C0] p-6 rounded-2xl text-white shadow-xs">
+      {/* Top Banner & Quick Actions with OTHX Enterprise Styling */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-linear-to-r from-[#0F172A] via-[#1E3A8A] to-[#2563EB] p-6 sm:p-7 rounded-2xl text-white shadow-sm border border-slate-800">
         <div>
-          <span className="text-xs font-semibold text-blue-200 uppercase tracking-wider block mb-1">
-            Painel Central de ITSM · Health Quality
-          </span>
+          <div className="flex items-center gap-2 mb-1.5">
+            <span className="text-xs font-semibold px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-300 border border-cyan-400/30 uppercase tracking-wider">
+              OTHX Solutions
+            </span>
+            <span className="text-xs text-slate-300">· v0.2.0</span>
+          </div>
           <h2 className="text-xl sm:text-2xl font-bold tracking-tight">
-            Gestão Operacional de Suporte Técnico
+            OTHX Help Desk
           </h2>
-          <p className="text-xs sm:text-sm text-blue-100 mt-1 max-w-xl">
-            Acompanhe o tempo de resposta, volume de chamados por setor e disponibilidade das aplicações hospitalares.
+          <p className="text-xs sm:text-sm text-blue-100 mt-1 max-w-xl leading-relaxed">
+            Conectando processos e tecnologia. Plataforma inteligente para gerenciamento de chamados, diagnósticos e ativos de TI.
           </p>
         </div>
 
         <div className="flex items-center gap-2.5 shrink-0">
           <button
             onClick={() => navigate('/chamados/novo')}
-            className="inline-flex items-center gap-2 px-4 py-2.5 bg-white text-[#1565C0] hover:bg-blue-50 font-semibold text-xs sm:text-sm rounded-xl transition-all shadow-xs"
+            className="inline-flex items-center gap-2 px-4 py-2.5 bg-white text-[#2563EB] hover:bg-slate-100 font-semibold text-xs sm:text-sm rounded-xl transition-all shadow-xs"
           >
             <PlusCircle className="w-4 h-4" />
             Abrir Chamado
@@ -62,7 +66,7 @@ export const DashboardPage: React.FC = () => {
         <StatCard
           title="Total de Chamados"
           value={total}
-          subtitle="Registros no Helpdesk"
+          subtitle="Registros no Help Desk"
           icon={TicketIcon}
           iconColor="text-blue-600"
           iconBg="bg-blue-50"
@@ -74,8 +78,8 @@ export const DashboardPage: React.FC = () => {
           value={novos}
           subtitle="Triagem pendente"
           icon={Sparkles}
-          iconColor="text-sky-600"
-          iconBg="bg-sky-50"
+          iconColor="text-cyan-600"
+          iconBg="bg-cyan-50"
           onClick={() => navigate('/chamados?status=novo')}
         />
 
@@ -121,9 +125,9 @@ export const DashboardPage: React.FC = () => {
       </div>
 
       {/* MTTR Banner / Secondary Metrics Strip */}
-      <div className="bg-white rounded-xl border border-slate-200 p-4 sm:p-5 flex flex-wrap items-center justify-between gap-4">
+      <div className="bg-white rounded-xl border border-slate-200 p-4 sm:p-5 flex flex-wrap items-center justify-between gap-4 shadow-xs">
         <div className="flex items-center gap-3">
-          <div className="p-2.5 rounded-lg bg-indigo-50 text-indigo-700">
+          <div className="p-2.5 rounded-lg bg-blue-50 text-[#2563EB]">
             <Timer className="w-5 h-5" />
           </div>
           <div>

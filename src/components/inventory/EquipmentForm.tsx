@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Equipment, EquipmentStatus } from '../../types';
-import { SECTORES_HQ } from '../../utils/ticketUtils';
+import { SECTORES_OTHX } from '../../utils/ticketUtils';
 import { useApp } from '../../context/AppContext';
 import { Save } from 'lucide-react';
 
@@ -23,7 +23,7 @@ export const EquipmentForm: React.FC<EquipmentFormProps> = ({
   const [modelo, setModelo] = useState(initialEquipment?.modelo || '');
   const [hostname, setHostname] = useState(initialEquipment?.hostname || '');
   const [ip, setIp] = useState(initialEquipment?.ip || '');
-  const [setor, setSetor] = useState(initialEquipment?.setor || SECTORES_HQ[0]);
+  const [setor, setSetor] = useState(initialEquipment?.setor || SECTORES_OTHX[0]);
   const [usuario, setUsuario] = useState(initialEquipment?.usuario || '');
   const [status, setStatus] = useState<EquipmentStatus>(initialEquipment?.status || 'operacional');
   const [os, setOs] = useState(initialEquipment?.especificacoes.os || 'Windows 11 Pro');
@@ -80,7 +80,7 @@ export const EquipmentForm: React.FC<EquipmentFormProps> = ({
             type="text"
             value={codigo}
             onChange={e => setCodigo(e.target.value)}
-            placeholder="Ex: HQ-PC-TESTE-006"
+            placeholder="Ex: OTHX-PC-0006"
             className="w-full text-xs p-2.5 bg-white border border-slate-200 rounded-lg font-mono focus:ring-1 focus:ring-blue-500 focus:outline-hidden"
           />
         </div>
@@ -156,7 +156,7 @@ export const EquipmentForm: React.FC<EquipmentFormProps> = ({
             type="text"
             value={hostname}
             onChange={e => setHostname(e.target.value)}
-            placeholder="Ex: HQ-DESK-FAT02"
+            placeholder="Ex: OTHX-DESK-ADM02"
             className="w-full text-xs p-2.5 bg-white border border-slate-200 rounded-lg font-mono focus:ring-1 focus:ring-blue-500 focus:outline-hidden"
           />
         </div>
@@ -185,7 +185,7 @@ export const EquipmentForm: React.FC<EquipmentFormProps> = ({
             onChange={e => setSetor(e.target.value)}
             className="w-full text-xs p-2.5 bg-white border border-slate-200 rounded-lg focus:ring-1 focus:ring-blue-500 focus:outline-hidden"
           >
-            {SECTORES_HQ.map(s => (
+            {SECTORES_OTHX.map(s => (
               <option key={s} value={s}>
                 {s}
               </option>
@@ -279,7 +279,7 @@ export const EquipmentForm: React.FC<EquipmentFormProps> = ({
         </button>
         <button
           type="submit"
-          className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold text-white bg-[#1565C0] hover:bg-[#0D326B] rounded-lg transition-colors shadow-xs"
+          className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold text-white bg-[#2563EB] hover:bg-[#1D4ED8] rounded-lg transition-colors shadow-xs"
         >
           <Save className="w-4 h-4" />
           Salvar Equipamento

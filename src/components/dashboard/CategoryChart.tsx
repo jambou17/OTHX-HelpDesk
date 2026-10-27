@@ -28,8 +28,8 @@ export const CategoryChart: React.FC<CategoryChartProps> = ({ tickets }) => {
 
   const getBarColor = (index: number) => {
     const colors = [
-      'bg-[#1565C0]',
-      'bg-sky-500',
+      'bg-[#2563EB]',
+      'bg-cyan-500',
       'bg-indigo-500',
       'bg-teal-500',
       'bg-amber-500',
@@ -63,7 +63,7 @@ export const CategoryChart: React.FC<CategoryChartProps> = ({ tickets }) => {
             className="group cursor-pointer"
           >
             <div className="flex items-center justify-between text-xs mb-1.5">
-              <span className="font-medium text-slate-700 group-hover:text-[#1565C0] transition-colors truncate max-w-[220px] sm:max-w-xs">
+              <span className="font-medium text-slate-700 group-hover:text-[#2563EB] transition-colors truncate max-w-[220px] sm:max-w-xs">
                 {item.name}
               </span>
               <div className="flex items-center gap-2 text-slate-500 shrink-0">

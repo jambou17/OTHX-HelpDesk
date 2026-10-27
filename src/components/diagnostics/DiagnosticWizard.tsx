@@ -72,7 +72,7 @@ export const DiagnosticWizard: React.FC<DiagnosticWizardProps> = ({
       <div className="p-6 bg-slate-50/70 border-b border-slate-200">
         <div className="flex flex-wrap items-center justify-between gap-3 mb-2">
           <div className="flex items-center gap-2">
-            <span className="p-1.5 rounded-lg bg-blue-100 text-[#1565C0]">
+            <span className="p-1.5 rounded-lg bg-blue-100 text-[#2563EB]">
               <Wrench className="w-5 h-5" />
             </span>
             <h3 className="text-base sm:text-lg font-bold text-slate-900">
@@ -120,7 +120,7 @@ export const DiagnosticWizard: React.FC<DiagnosticWizardProps> = ({
               if (res.realizado) {
                 bg = res.passou === false ? 'bg-rose-500' : 'bg-emerald-500';
               } else if (idx === currentStepIndex) {
-                bg = 'bg-[#1565C0]';
+                bg = 'bg-[#2563EB]';
               }
               return (
                 <div
@@ -141,7 +141,7 @@ export const DiagnosticWizard: React.FC<DiagnosticWizardProps> = ({
           <div className="border border-slate-200 rounded-xl p-5 bg-white shadow-xs">
             <div className="flex items-start justify-between gap-4 mb-3">
               <div>
-                <span className="text-xs font-bold text-[#1565C0] uppercase tracking-wider block mb-1">
+                <span className="text-xs font-bold text-[#2563EB] uppercase tracking-wider block mb-1">
                   Etapa {currentStep.ordem}
                 </span>
                 <h4 className="text-base font-bold text-slate-900">
@@ -246,7 +246,7 @@ export const DiagnosticWizard: React.FC<DiagnosticWizardProps> = ({
               <button
                 type="button"
                 onClick={() => setCurrentStepIndex(prev => Math.min(totalSteps - 1, prev + 1))}
-                className="inline-flex items-center gap-1 px-4 py-2 text-xs font-medium text-white bg-[#1565C0] hover:bg-[#0D326B] rounded-lg transition-colors shadow-xs"
+                className="inline-flex items-center gap-1 px-4 py-2 text-xs font-medium text-white bg-[#2563EB] hover:bg-[#1D4ED8] rounded-lg transition-colors shadow-xs"
               >
                 Próxima Etapa
                 <ArrowRight className="w-4 h-4" />

@@ -46,7 +46,7 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({ article, onView, onEdi
           {getStatusBadge()}
         </div>
 
-        <h3 className="text-base font-bold text-slate-900 group-hover:text-[#1565C0] transition-colors leading-snug">
+        <h3 className="text-base font-bold text-slate-900 group-hover:text-[#2563EB] transition-colors leading-snug">
           {article.titulo}
         </h3>
 

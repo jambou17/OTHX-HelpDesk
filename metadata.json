@@ -1,6 +1,6 @@
 {
-  "name": "HQ TechAssist | Health Quality",
-  "description": "Sistema corporativo de gestão de chamados de Helpdesk, diagnósticos técnicos, base de conhecimento e inventário de TI da Health Quality.",
+  "name": "OTHX Help Desk",
+  "description": "Plataforma inteligente para gerenciamento de chamados, diagnósticos e ativos de Tecnologia da Informação.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

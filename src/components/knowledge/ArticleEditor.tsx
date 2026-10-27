@@ -187,7 +187,7 @@ export const ArticleEditor: React.FC<ArticleEditorProps> = ({
           </button>
           <button
             type="submit"
-            className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold text-white bg-[#1565C0] hover:bg-[#0D326B] rounded-lg transition-colors shadow-xs"
+            className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold text-white bg-[#2563EB] hover:bg-[#1D4ED8] rounded-lg transition-colors shadow-xs"
           >
             <Save className="w-4 h-4" />
             Salvar Procedimento

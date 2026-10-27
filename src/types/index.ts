@@ -1,6 +1,6 @@
 /**
- * HQ TechAssist - Definições de Tipos e Modelos
- * Health Quality | Tecnologia da Informação
+ * OTHX Help Desk - Definições de Tipos e Modelos
+ * OTHX Solutions | Conectando processos e tecnologia
  */
 
 export type TicketStatus = 
@@ -90,7 +90,7 @@ export type EquipmentStatus = 'operacional' | 'em_manutencao' | 'desativado';
 
 export interface Equipment {
   id: string;
-  codigo: string; // Ex: HQ-PC-TESTE-001
+  codigo: string; // Ex: OTHX-PC-0001
   tipo: 'Computador' | 'Notebook' | 'Impressora' | 'Servidor' | 'Switch' | 'Outro';
   fabricante: string;
   modelo: string;

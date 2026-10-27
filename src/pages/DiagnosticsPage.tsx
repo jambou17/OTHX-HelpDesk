@@ -6,7 +6,7 @@ import { DiagnosticCard } from '../components/diagnostics/DiagnosticCard';
 import { DiagnosticWizard } from '../components/diagnostics/DiagnosticWizard';
 import { SearchInput } from '../components/ui/SearchInput';
 import { EmptyState } from '../components/ui/EmptyState';
-import { Wrench, ShieldAlert, Sparkles, Filter } from 'lucide-react';
+import { Wrench } from 'lucide-react';
 
 export const DiagnosticsPage: React.FC = () => {
   const { state } = useApp();
@@ -49,7 +49,7 @@ export const DiagnosticsPage: React.FC = () => {
       <div className="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-xs">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div className="flex items-start gap-3">
-            <div className="p-3 rounded-xl bg-blue-100 text-[#1565C0] shrink-0">
+            <div className="p-3 rounded-xl bg-blue-100 text-[#2563EB] shrink-0">
               <Wrench className="w-6 h-6" />
             </div>
             <div>
@@ -57,13 +57,13 @@ export const DiagnosticsPage: React.FC = () => {
                 Central de Diagnósticos Técnicos
               </h2>
               <p className="text-xs sm:text-sm text-slate-500 mt-1 max-w-2xl leading-relaxed">
-                Roteiros guiados e checklists padronizados para investigação prudente de falhas de hardware, rede, impressoras e TOTVS Protheus.
+                Roteiros guiados e checklists padronizados para investigação prudente de falhas de hardware, rede corporativa, impressoras e TOTVS Protheus.
               </p>
             </div>
           </div>
 
           {initialTicketId && (
-            <div className="px-3.5 py-2 bg-blue-50 border border-blue-200 rounded-lg text-xs text-[#1565C0] font-semibold shrink-0">
+            <div className="px-3.5 py-2 bg-blue-50 border border-blue-200 rounded-lg text-xs text-[#2563EB] font-semibold shrink-0">
               Vinculando à OS selecionada
             </div>
           )}
@@ -85,7 +85,7 @@ export const DiagnosticsPage: React.FC = () => {
                 onClick={() => setSelectedCategory(cat.id)}
                 className={`px-3 py-1.5 text-xs font-semibold rounded-lg transition-colors whitespace-nowrap ${
                   selectedCategory === cat.id
-                    ? 'bg-[#1565C0] text-white shadow-xs'
+                    ? 'bg-[#2563EB] text-white shadow-xs'
                     : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
                 }`}
               >

@@ -13,6 +13,9 @@ import {
   FileCode,
   HardDrive,
   Info,
+  Sparkles,
+  CheckCircle,
+  HelpCircle,
 } from 'lucide-react';
 
 export const SettingsPage: React.FC = () => {
@@ -21,6 +24,7 @@ export const SettingsPage: React.FC = () => {
     switchUser,
     restoreDemoData,
     clearAllData,
+    anonymizeData,
     importDataFromJSON,
     exportDataToJSON,
   } = useApp();
@@ -30,6 +34,7 @@ export const SettingsPage: React.FC = () => {
   // Modals state
   const [confirmRestoreOpen, setConfirmRestoreOpen] = useState(false);
   const [confirmClearOpen, setConfirmClearOpen] = useState(false);
+  const [confirmAnonymizeOpen, setConfirmAnonymizeOpen] = useState(false);
 
   const handleExport = () => {
     const jsonStr = exportDataToJSON();
@@ -37,7 +42,7 @@ export const SettingsPage: React.FC = () => {
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `hq-techassist-backup-${new Date().toISOString().split('T')[0]}.json`;
+    a.download = `othx-helpdesk-backup-${new Date().toISOString().split('T')[0]}.json`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
@@ -66,15 +71,22 @@ export const SettingsPage: React.FC = () => {
       {/* Top Banner */}
       <div className="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-xs">
         <div className="flex items-start gap-4">
-          <div className="p-3 rounded-xl bg-blue-100 text-[#1565C0] shrink-0">
+          <div className="p-3 rounded-xl bg-blue-100 text-[#2563EB] shrink-0">
             <Database className="w-6 h-6" />
           </div>
           <div>
+            <div className="flex items-center gap-2 mb-1">
+              <span className="text-xs font-semibold text-[#2563EB] bg-blue-50 px-2 py-0.5 rounded border border-blue-200">
+                OTHX Solutions
+              </span>
+              <span className="text-xs text-slate-400">·</span>
+              <span className="text-xs font-mono text-slate-500">v0.2.0</span>
+            </div>
             <h2 className="text-xl font-bold text-slate-900 tracking-tight">
               Configurações & Armazenamento Local
             </h2>
             <p className="text-xs sm:text-sm text-slate-500 mt-1 leading-relaxed">
-              Gestão de persistência em <code className="bg-slate-100 px-1 py-0.5 rounded font-mono text-[11px]">localStorage</code>, importação/exportação de backups JSON e simulação de perfis de usuário.
+              Gestão de persistência em <code className="bg-slate-100 px-1.5 py-0.5 rounded font-mono text-[11px] text-[#2563EB]">othx-helpdesk:v1</code>, backups JSON, perfis de demonstração e sanitização de dados.
             </p>
           </div>
         </div>
@@ -83,7 +95,7 @@ export const SettingsPage: React.FC = () => {
       {/* Visão dos Dados Armazenados */}
       <div className="bg-white rounded-xl border border-slate-200 p-6 shadow-xs">
         <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-4 flex items-center gap-2">
-          <Layers className="w-4 h-4 text-[#1565C0]" />
+          <Layers className="w-4 h-4 text-[#2563EB]" />
           Estatísticas dos Registros Atuais
         </h3>
 
@@ -121,11 +133,11 @@ export const SettingsPage: React.FC = () => {
       {/* Simulação de Perfil de Usuário */}
       <div className="bg-white rounded-xl border border-slate-200 p-6 shadow-xs">
         <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-2 flex items-center gap-2">
-          <UserCheck className="w-4 h-4 text-[#1565C0]" />
+          <UserCheck className="w-4 h-4 text-[#2563EB]" />
           Perfil Simulado para Demonstração
         </h3>
         <p className="text-xs text-slate-500 mb-4">
-          Como este é um MVP de demonstração local, você pode alternar facilmente entre os perfis fictícios da Health Quality:
+          Como este é um MVP de demonstração local, você pode alternar facilmente entre os perfis fictícios da OTHX Solutions:
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -137,12 +149,12 @@ export const SettingsPage: React.FC = () => {
                 onClick={() => switchUser(user.id)}
                 className={`p-4 rounded-xl border cursor-pointer transition-all ${
                   isSelected
-                    ? 'border-[#1565C0] bg-blue-50/60 shadow-xs'
+                    ? 'border-[#2563EB] bg-blue-50/60 shadow-xs'
                     : 'border-slate-200 bg-white hover:bg-slate-50'
                 }`}
               >
                 <div className="flex items-center justify-between mb-2">
-                  <div className="w-8 h-8 rounded-full bg-[#1565C0] text-white flex items-center justify-center font-bold text-xs">
+                  <div className="w-8 h-8 rounded-full bg-[#2563EB] text-white flex items-center justify-center font-bold text-xs">
                     {user.avatarInitials}
                   </div>
                   <span className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded ${
@@ -167,7 +179,7 @@ export const SettingsPage: React.FC = () => {
       {/* Backup, Importação e Exportação */}
       <div className="bg-white rounded-xl border border-slate-200 p-6 shadow-xs">
         <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-2 flex items-center gap-2">
-          <FileCode className="w-4 h-4 text-[#1565C0]" />
+          <FileCode className="w-4 h-4 text-[#2563EB]" />
           Importação e Exportação de Dados
         </h3>
         <p className="text-xs text-slate-500 mb-5">
@@ -179,8 +191,8 @@ export const SettingsPage: React.FC = () => {
             onClick={handleExport}
             className="inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold text-slate-700 bg-white border border-slate-200 hover:bg-slate-50 rounded-lg transition-colors shadow-xs"
           >
-            <Download className="w-4 h-4 text-[#1565C0]" />
-            Exportar Dados para JSON
+            <Download className="w-4 h-4 text-[#2563EB]" />
+            Exportar Dados para JSON (OTHX)
           </button>
 
           <input
@@ -201,17 +213,25 @@ export const SettingsPage: React.FC = () => {
         </div>
       </div>
 
-      {/* Ações de Restauração e Limpeza */}
+      {/* Manutenção e Anonimização */}
       <div className="bg-white rounded-xl border border-slate-200 p-6 shadow-xs">
         <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-2 flex items-center gap-2">
           <RotateCcw className="w-4 h-4 text-amber-600" />
-          Manutenção do Ambiente de Demonstração
+          Manutenção & Anonimização de Dados
         </h3>
         <p className="text-xs text-slate-500 mb-5">
-          Restaure os dados de demonstração originais ou limpe completamente a fila para testes em branco.
+          Restaure os dados de demonstração originais da OTHX, execute uma limpeza profunda de dados corporativos legados ou esvazie a fila de chamados.
         </p>
 
         <div className="flex flex-wrap items-center gap-3">
+          <button
+            onClick={() => setConfirmAnonymizeOpen(true)}
+            className="inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold text-indigo-700 bg-indigo-50 hover:bg-indigo-100/80 border border-indigo-200 rounded-lg transition-colors"
+          >
+            <Sparkles className="w-4 h-4" />
+            Anonimizar Base Salva
+          </button>
+
           <button
             onClick={() => setConfirmRestoreOpen(true)}
             className="inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold text-amber-700 bg-amber-50 hover:bg-amber-100/80 border border-amber-200 rounded-lg transition-colors"
@@ -230,22 +250,87 @@ export const SettingsPage: React.FC = () => {
         </div>
       </div>
 
-      {/* Informações da Versão e Arquitetura */}
-      <div className="p-5 bg-slate-50 rounded-xl border border-slate-200 text-xs text-slate-600 space-y-2">
-        <div className="flex items-center justify-between">
-          <span className="font-bold text-slate-800">HQ TechAssist | Health Quality</span>
-          <span className="font-mono text-slate-500 font-semibold">v0.1.0 - Protótipo Local</span>
+      {/* Seção Sobre o OTHX Help Desk */}
+      <div className="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-xs">
+        <div className="flex items-start gap-4 pb-6 border-b border-slate-100">
+          <div className="w-12 h-12 rounded-xl bg-[#0F172A] text-white flex items-center justify-center font-bold text-base tracking-wider shrink-0 shadow-xs border border-slate-800">
+            OTHX
+          </div>
+          <div>
+            <h3 className="text-base sm:text-lg font-bold text-slate-900">
+              Sobre o OTHX Help Desk
+            </h3>
+            <p className="text-xs sm:text-sm text-[#2563EB] font-medium mt-0.5">
+              Conectando processos e tecnologia.
+            </p>
+          </div>
         </div>
-        <p className="text-slate-500 leading-relaxed">
-          Camada de repositório desacoplada pronta para migração com Google Apps Script e Google Sheets sem refatoração de componentes visuais.
-        </p>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 py-6 text-xs text-slate-600 border-b border-slate-100">
+          <div className="space-y-2">
+            <div>
+              <span className="text-slate-400 block font-medium">Nome do Produto:</span>
+              <strong className="text-slate-800 font-semibold">OTHX Help Desk</strong>
+            </div>
+            <div>
+              <span className="text-slate-400 block font-medium">Empresa Desenvolvedora:</span>
+              <strong className="text-slate-800 font-semibold">OTHX Solutions</strong>
+            </div>
+            <div>
+              <span className="text-slate-400 block font-medium">Versão:</span>
+              <strong className="text-slate-800 font-mono">v0.2.0</strong>
+            </div>
+          </div>
+
+          <div className="space-y-2">
+            <div>
+              <span className="text-slate-400 block font-medium">Ambiente Operacional:</span>
+              <span className="text-slate-700">Protótipo Local (Frontend SPA Reativo)</span>
+            </div>
+            <div>
+              <span className="text-slate-400 block font-medium">Chave de Armazenamento:</span>
+              <code className="text-[#2563EB] font-mono bg-blue-50 px-1.5 py-0.5 rounded border border-blue-100">
+                othx-helpdesk:v1
+              </code>
+            </div>
+            <div>
+              <span className="text-slate-400 block font-medium">Migração Segura:</span>
+              <span className="text-emerald-700 font-medium flex items-center gap-1">
+                <CheckCircle className="w-3.5 h-3.5" /> Compatibilidade retroativa ativa
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div className="pt-6">
+          <div className="p-4 bg-slate-50 rounded-xl border border-slate-200 text-xs text-slate-500 leading-relaxed flex items-start gap-3">
+            <Info className="w-5 h-5 text-slate-400 shrink-0 mt-0.5" />
+            <div>
+              <strong className="text-slate-700 block mb-1">Aviso Institucional de Projeto Demonstrativo:</strong>
+              Este aplicativo é um projeto demonstrativo com dados totalmente fictícios desenvolvido para a validação de arquitetura, fluxos operacionais e experiência do usuário (UX). Nenhuma informação real de clientes, pacientes ou empresas reais está contida nesta base.
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* Dialogs */}
       <ConfirmDialog
+        isOpen={confirmAnonymizeOpen}
+        title="Anonimizar Dados Salvos"
+        message="Esta ação fará uma varredura em todos os chamados, comentários e ativos salvos localmente, substituindo qualquer dado sensível ou termos remanescentes por identificadores genéricos da OTHX Solutions. Deseja prosseguir?"
+        confirmLabel="Sim, Anonimizar Dados"
+        cancelLabel="Cancelar"
+        onConfirm={() => {
+          anonymizeData();
+          setConfirmAnonymizeOpen(false);
+        }}
+        onCancel={() => setConfirmAnonymizeOpen(false)}
+      />
+
+      <ConfirmDialog
         isOpen={confirmRestoreOpen}
         title="Restaurar Dados Demonstrativos"
-        message="Deseja recarregar os 12 chamados, 5 equipamentos e checklists padrão de fábrica? Qualquer alteração feita localmente será substituída."
+        message="Deseja recarregar os 12 chamados, 6 equipamentos e procedimentos homologados padrão de fábrica da OTHX Solutions? Qualquer alteração feita localmente será substituída."
         confirmLabel="Sim, Restaurar Demonstração"
         cancelLabel="Cancelar"
         onConfirm={() => {
@@ -258,7 +343,7 @@ export const SettingsPage: React.FC = () => {
       <ConfirmDialog
         isOpen={confirmClearOpen}
         title="Limpar Todos os Registros"
-        message="Atenção: esta ação apagará permanentemente todos os chamados e histórico salvos no localStorage deste navegador. Deseja continuar?"
+        message="Atenção: esta ação apagará permanentemente todos os chamados e histórico salvos no localStorage (othx-helpdesk:v1) deste navegador. Deseja continuar?"
         confirmLabel="Sim, Limpar Tudo"
         cancelLabel="Cancelar"
         isDestructive

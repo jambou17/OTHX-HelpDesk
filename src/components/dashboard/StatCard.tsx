@@ -51,7 +51,7 @@ export const StatCard: React.FC<StatCardProps> = ({
           {value}
         </div>
         {onClick && (
-          <span className="text-xs font-medium text-slate-400 group-hover:text-[#1565C0] flex items-center gap-0.5 transition-colors">
+          <span className="text-xs font-medium text-slate-400 group-hover:text-[#2563EB] flex items-center gap-0.5 transition-colors">
             Filtrar <ArrowUpRight className="w-3.5 h-3.5" />
           </span>
         )}

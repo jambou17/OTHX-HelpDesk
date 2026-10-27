@@ -81,7 +81,7 @@ export const EquipmentTable: React.FC<EquipmentTableProps> = ({
                   key={item.id}
                   className="hover:bg-blue-50/30 transition-colors"
                 >
-                  <td className="py-3 px-4 font-mono font-semibold text-[#1565C0] whitespace-nowrap">
+                  <td className="py-3 px-4 font-mono font-semibold text-[#2563EB] whitespace-nowrap">
                     {item.codigo}
                   </td>
                   <td className="py-3 px-4">
@@ -112,7 +112,7 @@ export const EquipmentTable: React.FC<EquipmentTableProps> = ({
                     <span
                       className={`inline-block px-2 py-0.5 rounded text-xs font-semibold ${
                         relatedCount > 0
-                          ? 'bg-blue-100 text-[#1565C0]'
+                          ? 'bg-blue-100 text-[#2563EB]'
                           : 'bg-slate-100 text-slate-400'
                       }`}
                     >
@@ -123,7 +123,7 @@ export const EquipmentTable: React.FC<EquipmentTableProps> = ({
                     <div className="flex items-center justify-end gap-1">
                       <button
                         onClick={() => onView(item)}
-                        className="p-1.5 text-slate-500 hover:text-[#1565C0] hover:bg-slate-100 rounded-md transition-colors"
+                        className="p-1.5 text-slate-500 hover:text-[#2563EB] hover:bg-slate-100 rounded-md transition-colors"
                         title="Ver detalhes e chamados"
                       >
                         <Eye className="w-4 h-4" />

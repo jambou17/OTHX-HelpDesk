@@ -77,7 +77,7 @@ export const IMPACT_MAP: Record<TicketImpact, { label: string; description: stri
   },
   setor_parado: {
     label: 'Meu setor está parado',
-    description: 'Múltiplos colaboradores ou processo hospitalar crítico paralisado.',
+    description: 'Múltiplos colaboradores ou processo operacional crítico paralisado.',
     defaultPriority: 'critica',
   },
   sem_interrupcao: {
@@ -111,7 +111,7 @@ export const CATEGORIES_WITH_SUBCATEGORIES: Record<TicketCategory, string[]> = {
     'Puxando várias folhas ao mesmo tempo / Atolamento',
     'Impressora Zebra / Etiquetas descalibrada',
     'Falha na qualidade da impressão / Manchas',
-    'Impressora offline na rede hospitalar',
+    'Impressora offline na rede corporativa',
     'Troca de toner ou fita ribbon',
     'Instalação de driver em novo computador',
   ],
@@ -137,7 +137,7 @@ export const CATEGORIES_WITH_SUBCATEGORIES: Record<TicketCategory, string[]> = {
     'Antivírus corporativo bloqueando aplicativo válido',
     'Certificado Digital A1 / A3 (Token não reconhecido)',
     'Problemas no navegador Google Chrome / Edge',
-    'Visualizador de imagens médicas / PACS',
+    'Sistema de Gestão Empresarial / ERP',
   ],
   'Outros': [
     'Dúvida de usabilidade geral',
@@ -147,22 +147,21 @@ export const CATEGORIES_WITH_SUBCATEGORIES: Record<TicketCategory, string[]> = {
   ],
 };
 
-export const SECTORES_HQ = [
-  'Administração Geral',
-  'Almoxarifado & Logística',
-  'Atendimento & Recepção',
-  'Centro Cirúrgico',
-  'Contabilidade & Fiscal',
-  'Diretoria Executiva',
-  'Enfermagem Geral',
-  'Farmácia Hospitalar',
-  'Faturamento & Auditoria',
-  'Laboratório Clínico',
-  'Pronto Atendimento (PA)',
-  'Recursos Humanos (RH)',
-  'Tecnologia da Informação (TI)',
-  'UTI Geral',
+// Setores corporativos oficiais
+export const SECTORES_OTHX = [
+  'Administrativo',
+  'Financeiro',
+  'Recursos Humanos',
+  'Comercial',
+  'Operações',
+  'Produção',
+  'Logística',
+  'Tecnologia da Informação',
+  'Qualidade',
 ];
+
+// Alias para compatibilidade reversa
+export const SECTORES_HQ = SECTORES_OTHX;
 
 /**
  * Gera o próximo número de OS sequencial no formato OS-2026-XXXX

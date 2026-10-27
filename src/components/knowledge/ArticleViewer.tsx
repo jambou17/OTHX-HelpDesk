@@ -44,7 +44,7 @@ export const ArticleViewer: React.FC<ArticleViewerProps> = ({
           <button
             type="button"
             onClick={onEdit}
-            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-semibold text-white bg-[#1565C0] hover:bg-[#0D326B] rounded-lg transition-colors shadow-xs"
+            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-semibold text-white bg-[#2563EB] hover:bg-[#1D4ED8] rounded-lg transition-colors shadow-xs"
           >
             <Edit3 className="w-3.5 h-3.5" />
             Editar Artigo
@@ -54,7 +54,7 @@ export const ArticleViewer: React.FC<ArticleViewerProps> = ({
 
       {/* Meta tags */}
       <div className="flex flex-wrap items-center gap-2 mb-3">
-        <span className="text-xs font-bold uppercase tracking-wider text-[#1565C0] bg-blue-50 px-2.5 py-1 rounded-md border border-blue-100">
+        <span className="text-xs font-bold uppercase tracking-wider text-[#2563EB] bg-blue-50 px-2.5 py-1 rounded-md border border-blue-100">
           {article.categoria}
         </span>
         <span className="text-xs font-medium text-slate-600 bg-slate-100 px-2.5 py-1 rounded-md capitalize">

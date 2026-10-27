@@ -22,7 +22,8 @@ type Action =
   | { type: 'DELETE_EQUIPMENT'; payload: string }
   | { type: 'SAVE_ARTICLE'; payload: KnowledgeArticle }
   | { type: 'RECORD_EXECUTION'; payload: Omit<DiagnosticExecution, 'id' | 'dataExecucao'> }
-  | { type: 'SWITCH_USER'; payload: string };
+  | { type: 'SWITCH_USER'; payload: string }
+  | { type: 'ANONYMIZE_DATA' };
 
 interface AppContextValue {
   state: AppState;
@@ -40,6 +41,7 @@ interface AppContextValue {
   switchUser: (userId: string) => void;
   restoreDemoData: () => void;
   clearAllData: () => void;
+  anonymizeData: () => void;
   importDataFromJSON: (jsonString: string) => { success: boolean; error?: string };
   exportDataToJSON: () => string;
 }
@@ -50,6 +52,10 @@ function appReducer(state: AppState, action: Action): AppState {
   switch (action.type) {
     case 'SET_STATE':
       return action.payload;
+
+    case 'ANONYMIZE_DATA': {
+      return LocalStorageRepository.anonymizeState(state);
+    }
 
     case 'ADD_TICKET': {
       const now = new Date().toISOString();
@@ -245,7 +251,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const [state, dispatch] = useReducer(appReducer, null, () => LocalStorageRepository.loadState());
   const [toasts, setToasts] = useState<ToastMessage[]>([]);
 
-  // Persistir alterações automaticamente sempre que o estado sofrer mutação
+  // Persistir alterações automaticamente
   useEffect(() => {
     if (state) {
       LocalStorageRepository.saveState(state);
@@ -286,7 +292,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       },
     });
 
-    addToast('sucesso', 'Chamado Registrado', `Ordem de Serviço ${numeroOS} gerada com sucesso.`);
+    addToast('sucesso', 'Chamado Registrado', `Ordem de Serviço ${numeroOS} gerada com sucesso no OTHX Help Desk.`);
     return newTicket;
   };
 
@@ -357,13 +363,18 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const restoreDemoData = () => {
     const fresh = LocalStorageRepository.restoreDefaultState();
     dispatch({ type: 'SET_STATE', payload: fresh });
-    addToast('info', 'Base Restaurada', 'Os dados demonstrativos de fábrica foram recarregados.');
+    addToast('info', 'Base Restaurada', 'Os dados demonstrativos OTHX Help Desk foram recarregados.');
   };
 
   const clearAllData = () => {
     const empty = LocalStorageRepository.clearState();
     dispatch({ type: 'SET_STATE', payload: empty });
     addToast('aviso', 'Dados Limpos', 'Todos os registros de chamados e histórico foram removidos.');
+  };
+
+  const anonymizeData = () => {
+    dispatch({ type: 'ANONYMIZE_DATA' });
+    addToast('sucesso', 'Anonimização Concluída', 'Todos os dados locais foram anonimizados para a identidade OTHX.');
   };
 
   const importDataFromJSON = (jsonString: string) => {
@@ -399,6 +410,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         switchUser,
         restoreDemoData,
         clearAllData,
+        anonymizeData,
         importDataFromJSON,
         exportDataToJSON,
       }}

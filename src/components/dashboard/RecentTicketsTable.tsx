@@ -23,12 +23,12 @@ export const RecentTicketsTable: React.FC<RecentTicketsTableProps> = ({ tickets 
             Chamados Recentes
           </h3>
           <p className="text-xs text-slate-500 mt-0.5">
-            Últimos registros abertos na fila de atendimento do Helpdesk
+            Últimos registros abertos na fila de atendimento do OTHX Help Desk
           </p>
         </div>
         <Link
           to="/chamados"
-          className="text-xs font-semibold text-[#1565C0] hover:text-[#0D326B] inline-flex items-center gap-1 transition-colors"
+          className="text-xs font-semibold text-[#2563EB] hover:text-blue-700 inline-flex items-center gap-1 transition-colors"
         >
           Ver todos os chamados <ArrowRight className="w-3.5 h-3.5" />
         </Link>
@@ -53,7 +53,7 @@ export const RecentTicketsTable: React.FC<RecentTicketsTableProps> = ({ tickets 
                 onClick={() => navigate(`/chamados/${ticket.id}`)}
                 className="hover:bg-slate-50/80 cursor-pointer transition-colors"
               >
-                <td className="py-3 px-4 font-mono font-semibold text-[#1565C0] whitespace-nowrap">
+                <td className="py-3 px-4 font-mono font-semibold text-[#2563EB] whitespace-nowrap">
                   {ticket.numeroOS}
                 </td>
                 <td className="py-3 px-4 max-w-xs">

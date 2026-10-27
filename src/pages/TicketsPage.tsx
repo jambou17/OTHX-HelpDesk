@@ -118,7 +118,7 @@ export const TicketsPage: React.FC = () => {
               onClick={() => setViewMode('table')}
               className={`inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-md transition-colors ${
                 viewMode === 'table'
-                  ? 'bg-blue-50 text-[#1565C0]'
+                  ? 'bg-blue-50 text-[#2563EB]'
                   : 'text-slate-600 hover:text-slate-900'
               }`}
             >
@@ -129,7 +129,7 @@ export const TicketsPage: React.FC = () => {
               onClick={() => setViewMode('kanban')}
               className={`inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-md transition-colors ${
                 viewMode === 'kanban'
-                  ? 'bg-blue-50 text-[#1565C0]'
+                  ? 'bg-blue-50 text-[#2563EB]'
                   : 'text-slate-600 hover:text-slate-900'
               }`}
             >
@@ -140,7 +140,7 @@ export const TicketsPage: React.FC = () => {
 
           <button
             onClick={() => navigate('/chamados/novo')}
-            className="inline-flex items-center gap-2 px-4 py-2 text-xs sm:text-sm font-semibold text-white bg-[#1565C0] hover:bg-[#0D326B] rounded-lg transition-colors shadow-xs"
+            className="inline-flex items-center gap-2 px-4 py-2 text-xs sm:text-sm font-semibold text-white bg-[#2563EB] hover:bg-[#1D4ED8] rounded-lg transition-colors shadow-xs"
           >
             <PlusCircle className="w-4 h-4" />
             Nova OS

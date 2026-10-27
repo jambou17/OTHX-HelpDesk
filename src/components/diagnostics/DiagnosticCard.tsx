@@ -41,7 +41,7 @@ export const DiagnosticCard: React.FC<DiagnosticCardProps> = ({ procedure, onSel
           {getDifficultyBadge()}
         </div>
 
-        <h3 className="text-base font-bold text-slate-900 group-hover:text-[#1565C0] transition-colors leading-snug">
+        <h3 className="text-base font-bold text-slate-900 group-hover:text-[#2563EB] transition-colors leading-snug">
           {procedure.titulo}
         </h3>
 
@@ -71,7 +71,7 @@ export const DiagnosticCard: React.FC<DiagnosticCardProps> = ({ procedure, onSel
         <button
           type="button"
           onClick={() => onSelect(procedure)}
-          className="w-full inline-flex items-center justify-center gap-1.5 py-2 px-3 text-xs font-semibold text-[#1565C0] bg-blue-50 hover:bg-blue-100/80 rounded-lg transition-colors group-hover:bg-[#1565C0] group-hover:text-white"
+          className="w-full inline-flex items-center justify-center gap-1.5 py-2 px-3 text-xs font-semibold text-[#2563EB] bg-blue-50 hover:bg-blue-100/80 rounded-lg transition-colors group-hover:bg-[#2563EB] group-hover:text-white"
         >
           <Wrench className="w-3.5 h-3.5" />
           Iniciar Diagnóstico Passo a Passo

@@ -54,7 +54,7 @@ export const EquipmentDetailsModal: React.FC<EquipmentDetailsModalProps> = ({
               onClose();
               onEdit(equipment);
             }}
-            className="text-xs font-semibold text-[#1565C0] hover:underline"
+            className="text-xs font-semibold text-[#2563EB] hover:underline"
           >
             Editar Ativo
           </button>
@@ -144,7 +144,7 @@ export const EquipmentDetailsModal: React.FC<EquipmentDetailsModalProps> = ({
                 >
                   <div className="min-w-0 pr-3">
                     <div className="flex items-center gap-2">
-                      <span className="font-mono font-bold text-[#1565C0]">{t.numeroOS}</span>
+                      <span className="font-mono font-bold text-[#2563EB]">{t.numeroOS}</span>
                       <span className="font-medium text-slate-800 truncate">{t.titulo}</span>
                     </div>
                     <span className="text-[11px] text-slate-400 truncate block mt-0.5">

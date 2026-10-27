@@ -47,13 +47,13 @@ export const TicketCard: React.FC<TicketCardProps> = ({ ticket, onOpenResolveMod
     >
       <div>
         <div className="flex items-center justify-between mb-2">
-          <span className="font-mono text-xs font-bold text-[#1565C0]">
+          <span className="font-mono text-xs font-bold text-[#2563EB]">
             {ticket.numeroOS}
           </span>
           <PriorityBadge priority={ticket.prioridade} />
         </div>
 
-        <h4 className="text-sm font-semibold text-slate-900 group-hover:text-[#1565C0] transition-colors line-clamp-2 leading-snug">
+        <h4 className="text-sm font-semibold text-slate-900 group-hover:text-[#2563EB] transition-colors line-clamp-2 leading-snug">
           {ticket.titulo}
         </h4>
 
@@ -119,7 +119,7 @@ export const TicketCard: React.FC<TicketCardProps> = ({ ticket, onOpenResolveMod
                     className={`w-full text-left px-3 py-1.5 text-xs flex items-center justify-between transition-colors ${
                       st.value === ticket.status
                         ? 'text-slate-400 cursor-not-allowed bg-slate-50'
-                        : 'text-slate-700 hover:bg-blue-50 hover:text-[#1565C0]'
+                        : 'text-slate-700 hover:bg-blue-50 hover:text-[#2563EB]'
                     }`}
                   >
                     <span>{st.label}</span>

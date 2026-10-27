@@ -6,7 +6,7 @@ import { ArticleViewer } from '../components/knowledge/ArticleViewer';
 import { ArticleEditor } from '../components/knowledge/ArticleEditor';
 import { SearchInput } from '../components/ui/SearchInput';
 import { EmptyState } from '../components/ui/EmptyState';
-import { BookOpen, PlusCircle, CheckCircle2, FileText, Archive } from 'lucide-react';
+import { BookOpen, PlusCircle } from 'lucide-react';
 
 export const KnowledgePage: React.FC = () => {
   const { state, saveArticle } = useApp();
@@ -98,7 +98,7 @@ export const KnowledgePage: React.FC = () => {
                 setActiveArticle(null);
                 setMode('new');
               }}
-              className="inline-flex items-center gap-2 px-4 py-2 text-xs sm:text-sm font-semibold text-white bg-[#1565C0] hover:bg-[#0D326B] rounded-lg transition-colors shadow-xs shrink-0"
+              className="inline-flex items-center gap-2 px-4 py-2 text-xs sm:text-sm font-semibold text-white bg-[#2563EB] hover:bg-blue-700 rounded-lg transition-colors shadow-xs shrink-0"
             >
               <PlusCircle className="w-4 h-4" />
               Novo Artigo
@@ -138,7 +138,7 @@ export const KnowledgePage: React.FC = () => {
                   onClick={() => setSelectedCategory(cat.id)}
                   className={`px-3 py-1 text-xs font-medium rounded-md transition-colors whitespace-nowrap ${
                     selectedCategory === cat.id
-                      ? 'bg-blue-50 text-[#1565C0] font-semibold'
+                      ? 'bg-blue-50 text-[#2563EB] font-semibold'
                       : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
                   }`}
                 >

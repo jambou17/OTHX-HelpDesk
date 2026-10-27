@@ -45,9 +45,9 @@ export const TicketTable: React.FC<TicketTableProps> = ({ tickets }) => {
       return <ArrowUpDown className="w-3 h-3 text-slate-300 ml-1 inline" />;
     }
     return sortOrder === 'asc' ? (
-      <ChevronUp className="w-3.5 h-3.5 text-[#1565C0] ml-1 inline" />
+      <ChevronUp className="w-3.5 h-3.5 text-[#2563EB] ml-1 inline" />
     ) : (
-      <ChevronDown className="w-3.5 h-3.5 text-[#1565C0] ml-1 inline" />
+      <ChevronDown className="w-3.5 h-3.5 text-[#2563EB] ml-1 inline" />
     );
   };
 
@@ -117,7 +117,7 @@ export const TicketTable: React.FC<TicketTableProps> = ({ tickets }) => {
                 onClick={() => navigate(`/chamados/${ticket.id}`)}
                 className="hover:bg-blue-50/40 cursor-pointer transition-colors"
               >
-                <td className="py-3.5 px-4 font-mono font-semibold text-[#1565C0] whitespace-nowrap">
+                <td className="py-3.5 px-4 font-mono font-semibold text-[#2563EB] whitespace-nowrap">
                   {ticket.numeroOS}
                 </td>
                 <td className="py-3.5 px-4 max-w-sm">

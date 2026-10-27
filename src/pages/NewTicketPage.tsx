@@ -4,15 +4,12 @@ import { useApp } from '../context/AppContext';
 import { 
   CATEGORIES_WITH_SUBCATEGORIES, 
   IMPACT_MAP, 
-  SECTORES_HQ 
+  SECTORES_OTHX 
 } from '../utils/ticketUtils';
 import { TicketCategory, TicketImpact, TicketPriority } from '../types';
 import { 
   PlusCircle, 
   ArrowLeft, 
-  Paperclip, 
-  AlertCircle, 
-  Laptop, 
   Send,
   Info
 } from 'lucide-react';
@@ -23,7 +20,7 @@ export const NewTicketPage: React.FC = () => {
 
   const [solicitante, setSolicitante] = useState(state.currentUser.nome);
   const [email, setEmail] = useState(state.currentUser.email);
-  const [setor, setSetor] = useState(state.currentUser.setor || SECTORES_HQ[0]);
+  const [setor, setSetor] = useState(state.currentUser.setor || SECTORES_OTHX[0]);
   const [titulo, setTitulo] = useState('');
   const [categoria, setCategoria] = useState<TicketCategory>('TOTVS Protheus');
   const [subcategoria, setSubcategoria] = useState(
@@ -97,15 +94,15 @@ export const NewTicketPage: React.FC = () => {
         {/* Form Header */}
         <div className="p-6 sm:p-8 bg-slate-50/70 border-b border-slate-200">
           <div className="flex items-center gap-3">
-            <div className="p-2.5 rounded-xl bg-blue-100 text-[#1565C0]">
+            <div className="p-2.5 rounded-xl bg-blue-100 text-[#2563EB]">
               <PlusCircle className="w-6 h-6" />
             </div>
             <div>
               <h2 className="text-xl font-bold text-slate-900 tracking-tight">
-                Abertura de Chamado Técnico
+                Abertura de Chamado · OTHX Help Desk
               </h2>
               <p className="text-xs text-slate-500 mt-0.5">
-                Preencha os dados do incidente para direcionamento à equipe de TI da Health Quality
+                Preencha os dados do incidente para direcionamento à equipe técnica
               </p>
             </div>
           </div>
@@ -144,7 +141,7 @@ export const NewTicketPage: React.FC = () => {
                   type="email"
                   value={email}
                   onChange={e => setEmail(e.target.value)}
-                  placeholder="nome.sobrenome@healthquality.corp"
+                  placeholder="nome.sobrenome@example.com"
                   className={`w-full text-xs sm:text-sm p-2.5 bg-white border rounded-lg focus:outline-hidden focus:ring-1 focus:ring-blue-500 ${
                     erros.email ? 'border-rose-400 bg-rose-50/20' : 'border-slate-200'
                   }`}
@@ -163,7 +160,7 @@ export const NewTicketPage: React.FC = () => {
                   onChange={e => setSetor(e.target.value)}
                   className="w-full text-xs sm:text-sm p-2.5 bg-white border border-slate-200 rounded-lg focus:outline-hidden focus:ring-1 focus:ring-blue-500"
                 >
-                  {SECTORES_HQ.map(s => (
+                  {SECTORES_OTHX.map(s => (
                     <option key={s} value={s}>
                       {s}
                     </option>
@@ -230,7 +227,7 @@ export const NewTicketPage: React.FC = () => {
                     onClick={() => setImpacto(key)}
                     className={`p-3.5 rounded-xl border cursor-pointer transition-all ${
                       isSelected
-                        ? 'border-[#1565C0] bg-blue-50/60 shadow-xs'
+                        ? 'border-[#2563EB] bg-blue-50/60 shadow-xs'
                         : 'border-slate-200 bg-white hover:bg-slate-50'
                     }`}
                   >
@@ -239,7 +236,7 @@ export const NewTicketPage: React.FC = () => {
                         {item.label}
                       </span>
                       <span className={`w-3.5 h-3.5 rounded-full border flex items-center justify-center ${
-                        isSelected ? 'border-[#1565C0] bg-[#1565C0]' : 'border-slate-300'
+                        isSelected ? 'border-[#2563EB] bg-[#2563EB]' : 'border-slate-300'
                       }`}>
                         {isSelected && <span className="w-1.5 h-1.5 rounded-full bg-white" />}
                       </span>
@@ -328,7 +325,7 @@ export const NewTicketPage: React.FC = () => {
                 <div>
                   <span className="font-semibold text-slate-800">Anexo de Arquivos e Evidências:</span>
                   <p className="text-slate-500 mt-0.5">
-                    O upload direto de arquivos e capturas de tela será habilitado na versão 0.2 conectada ao Google Drive. Nesta versão local de demonstração, utilize o campo de descrição para colar textos de erro.
+                    O upload direto de arquivos e capturas de tela será habilitado na versão v0.3 conectada a armazenamento em nuvem. Nesta versão local demonstrativa, utilize o campo de descrição para colar mensagens de erro.
                   </p>
                 </div>
               </div>
@@ -346,7 +343,7 @@ export const NewTicketPage: React.FC = () => {
             </button>
             <button
               type="submit"
-              className="inline-flex items-center gap-2 px-6 py-2.5 text-xs sm:text-sm font-semibold text-white bg-[#1565C0] hover:bg-[#0D326B] rounded-lg transition-colors shadow-xs"
+              className="inline-flex items-center gap-2 px-6 py-2.5 text-xs sm:text-sm font-semibold text-white bg-[#2563EB] hover:bg-blue-700 rounded-lg transition-colors shadow-xs"
             >
               <Send className="w-4 h-4" />
               Registrar Solicitação

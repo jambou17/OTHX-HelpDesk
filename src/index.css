@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+:root {
+  --primary-blue: #1565C0;
+  --dark-blue: #0D326B;
+  --bg-slate: #F5F7FB;
+  --surface-white: #FFFFFF;
+  --text-main: #1E293B;
+  --text-muted: #64748B;
+  --border-subtle: #E2E8F0;
+  --success-green: #16A34A;
+  --warning-amber: #F59E0B;
+  --danger-red: #DC2626;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+body {
+  background-color: #F5F7FB;
+  color: #1E293B;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbars for corporate feel */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.font-mono-code {
+  font-family: 'JetBrains Mono', monospace;
+}
